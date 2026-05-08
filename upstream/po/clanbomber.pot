@@ -1,0 +1,563 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Rene Lopez
+# This file is distributed under the same license as the clanbomber package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: clanbomber 2.3.0\n"
+"Report-Msgid-Bugs-To: rsl@members.fsf.org\n"
+"POT-Creation-Date: 2020-01-15 21:06+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/ClanBomber.cpp:102
+msgid "(+) clanbomber: deallocating resources..."
+msgstr ""
+
+#: src/ClanBomber.cpp:117
+msgid "Cannot Initialise SDL!"
+msgstr ""
+
+#: src/ClanBomber.cpp:159
+msgid "Cannot initialise the requested audio plugin!"
+msgstr ""
+
+#: src/ClanBomber.cpp:163
+msgid "Cannot Initialise SDL audio!"
+msgstr ""
+
+#: src/ClanBomber.cpp:167
+msgid "Cannot Initialise SDL ttf!"
+msgstr ""
+
+#: src/ClanBomber.cpp:213
+msgid "Config directory "
+msgstr ""
+
+#: src/ClanBomber.cpp:222
+msgid "Data directory "
+msgstr ""
+
+#: src/ClanBomber.cpp:234
+msgid "Main Menu"
+msgstr ""
+
+#: src/ClanBomber.cpp:236
+msgid "New Game"
+msgstr ""
+
+#: src/ClanBomber.cpp:237
+msgid "Start Local"
+msgstr ""
+
+#: src/ClanBomber.cpp:238
+msgid "Local Player Setup"
+msgstr ""
+
+#: src/ClanBomber.cpp:239
+msgid "Map Selection"
+msgstr ""
+
+#: src/ClanBomber.cpp:240 src/ClanBomber.cpp:300
+msgid "Random Bomber Positions"
+msgstr ""
+
+#: src/ClanBomber.cpp:242 src/ClanBomber.cpp:303
+msgid "Random Map Order"
+msgstr ""
+
+#: src/ClanBomber.cpp:244 src/ClanBomber.cpp:305
+msgid "Points to win"
+msgstr ""
+
+#: src/ClanBomber.cpp:246 src/ClanBomber.cpp:307
+msgid "Round Time"
+msgstr ""
+
+#: src/ClanBomber.cpp:249
+msgid "Options"
+msgstr ""
+
+#: src/ClanBomber.cpp:250
+msgid "Start/Max Extras"
+msgstr ""
+
+#: src/ClanBomber.cpp:251
+msgid "Start Bombs"
+msgstr ""
+
+#: src/ClanBomber.cpp:253
+msgid "Start Power"
+msgstr ""
+
+#: src/ClanBomber.cpp:255
+msgid "Start Skateboards"
+msgstr ""
+
+#: src/ClanBomber.cpp:257
+msgid "Start Kick"
+msgstr ""
+
+#: src/ClanBomber.cpp:259
+msgid "Start Glove"
+msgstr ""
+
+#: src/ClanBomber.cpp:261
+msgid "Max. Bombs"
+msgstr ""
+
+#: src/ClanBomber.cpp:263
+msgid "Max. Power"
+msgstr ""
+
+#: src/ClanBomber.cpp:265
+msgid "Max. Skateboards"
+msgstr ""
+
+#: src/ClanBomber.cpp:267
+msgid "Enable/Disable Extras"
+msgstr ""
+
+#: src/ClanBomber.cpp:268
+msgid "Bombs"
+msgstr ""
+
+#: src/ClanBomber.cpp:270
+msgid "Power"
+msgstr ""
+
+#: src/ClanBomber.cpp:272
+msgid "Skateboard"
+msgstr ""
+
+#: src/ClanBomber.cpp:274
+msgid "Kick"
+msgstr ""
+
+#: src/ClanBomber.cpp:276
+msgid "Glove"
+msgstr ""
+
+#: src/ClanBomber.cpp:278
+msgid "Enable/Disable Diseases"
+msgstr ""
+
+#: src/ClanBomber.cpp:280
+msgid "Joint"
+msgstr ""
+
+#: src/ClanBomber.cpp:282
+msgid "Viagra"
+msgstr ""
+
+#: src/ClanBomber.cpp:284
+msgid "Koks"
+msgstr ""
+
+#: src/ClanBomber.cpp:286
+msgid "Bomb Timing and Speed"
+msgstr ""
+
+#: src/ClanBomber.cpp:287
+msgid "Bomb Countdown (1/10 s)"
+msgstr ""
+
+#: src/ClanBomber.cpp:289
+msgid "Bomb Chain Reaction Delay (1/100 s)"
+msgstr ""
+
+#: src/ClanBomber.cpp:291
+msgid "Moving Bombs Speed (pixels per second)"
+msgstr ""
+
+#: src/ClanBomber.cpp:293
+msgid "Graphic Options"
+msgstr ""
+
+#: src/ClanBomber.cpp:294
+msgid "Kidz Mode"
+msgstr ""
+
+#: src/ClanBomber.cpp:296
+msgid "Corpse Parts"
+msgstr ""
+
+#: src/ClanBomber.cpp:298
+msgid "Shaky Explosions"
+msgstr ""
+
+#: src/ClanBomber.cpp:313
+msgid "Map Editor"
+msgstr ""
+
+#: src/ClanBomber.cpp:314
+msgid "Show Credits"
+msgstr ""
+
+#: src/ClanBomber.cpp:315
+msgid "Help Screen"
+msgstr ""
+
+#: src/ClanBomber.cpp:316
+msgid "Quit Game"
+msgstr ""
+
+#: src/ClanBomber.cpp:602
+msgid "- PAUSED -"
+msgstr ""
+
+#: src/ClanBomber.cpp:718
+msgid " fps"
+msgstr ""
+
+#: src/ClanBomber.cpp:843
+msgid "A WORLD DOMINATION PROJECT"
+msgstr ""
+
+#: src/ClanBomber.cpp:908
+msgid "ClanBomber Extras"
+msgstr ""
+
+#: src/ClanBomber.cpp:912
+msgid "Bomb:"
+msgstr ""
+
+#: src/ClanBomber.cpp:914
+msgid "You can place an additional bomb"
+msgstr ""
+
+#: src/ClanBomber.cpp:919
+msgid "Power:"
+msgstr ""
+
+#: src/ClanBomber.cpp:921
+msgid "Explosions grow one field in each direction"
+msgstr ""
+
+#: src/ClanBomber.cpp:926
+msgid "Skateboard:"
+msgstr ""
+
+#: src/ClanBomber.cpp:928
+msgid "Let's you move faster"
+msgstr ""
+
+#: src/ClanBomber.cpp:933
+msgid "Kick:"
+msgstr ""
+
+#: src/ClanBomber.cpp:935
+msgid "Kick bombs if you walk against one"
+msgstr ""
+
+#: src/ClanBomber.cpp:940
+msgid "Throw:"
+msgstr ""
+
+#: src/ClanBomber.cpp:943
+msgid "Throw Bombs if you press the button twice"
+msgstr ""
+
+#: src/ClanBomber.cpp:945
+msgid "without moving"
+msgstr ""
+
+#: src/ClanBomber.cpp:948 src/ClanBomber.cpp:982
+msgid "Press any key"
+msgstr ""
+
+#: src/ClanBomber.cpp:958
+msgid "ClanBomber Drugs"
+msgstr ""
+
+#: src/ClanBomber.cpp:963
+msgid "Joint:"
+msgstr ""
+
+#: src/ClanBomber.cpp:965
+msgid "Controller will be reversed"
+msgstr ""
+
+#: src/ClanBomber.cpp:970
+msgid "Viagra:"
+msgstr ""
+
+#: src/ClanBomber.cpp:972
+msgid "Autofire, this can be very dangerous!"
+msgstr ""
+
+#: src/ClanBomber.cpp:977
+msgid "Cocaine:"
+msgstr ""
+
+#: src/ClanBomber.cpp:979
+msgid "Let's you move very fast!! (too fast)"
+msgstr ""
+
+#: src/ClanBomber.cpp:1005
+msgid ""
+"\n"
+"    usage: clanbomber2 [--software|--direct3d|--opengl|--opengles|--"
+"opengles2] [--fullscreen]\n"
+"\n"
+msgstr ""
+
+#: src/ClanBomber.cpp:1020
+msgid "Invalid argument"
+msgstr ""
+
+#: src/Credits.cpp:43
+msgid "ClanBomber Credits"
+msgstr ""
+
+#: src/Credits.cpp:58
+msgid "ClanBomber Uses"
+msgstr ""
+
+#: src/Credits.cpp:71
+msgid "Thanks to"
+msgstr ""
+
+#: src/Credits.cpp:73
+msgid "Everyone supporting this game..."
+msgstr ""
+
+#: src/Credits.cpp:74
+msgid "... and playing it"
+msgstr ""
+
+#: src/GameStatus.cpp:119 src/GameStatus_Team.cpp:138
+msgid "PRESS SPACE TO CONTINUE"
+msgstr ""
+
+#: src/GameStatus.cpp:125 src/GameStatus_Team.cpp:203
+msgid "Draw Game"
+msgstr ""
+
+#: src/GameStatus.cpp:130 src/GameStatus_Team.cpp:209
+#: src/GameStatus_Team.cpp:214
+msgid " won"
+msgstr ""
+
+#: src/GameStatus.cpp:214 src/GameStatus_Team.cpp:220
+msgid "the Match"
+msgstr ""
+
+#: src/GameStatus.cpp:218 src/GameStatus_Team.cpp:224
+msgid "NEXT LEVEL"
+msgstr ""
+
+#: src/GameStatus_Team.cpp:42
+msgid "Blood Team"
+msgstr ""
+
+#: src/GameStatus_Team.cpp:43
+msgid "Gold Team"
+msgstr ""
+
+#: src/GameStatus_Team.cpp:44
+msgid "Water Team"
+msgstr ""
+
+#: src/GameStatus_Team.cpp:45
+msgid "Leaf Team"
+msgstr ""
+
+#: src/GameStatus_Team.cpp:184
+msgid "Teamless Heroes"
+msgstr ""
+
+#: src/MapEditor.cpp:178
+msgid "Select a map to edit and press Enter"
+msgstr ""
+
+#: src/MapEditor.cpp:180
+msgid "Maps marked red are readonly"
+msgstr ""
+
+#: src/MapEditor.cpp:182
+msgid "Press N to create a new map"
+msgstr ""
+
+#: src/MapEditor.cpp:184
+msgid "Press D to delete a map"
+msgstr ""
+
+#: src/MapEditor.cpp:202
+msgid "Name: "
+msgstr ""
+
+#: src/MapEditor.cpp:205 src/MapEditor.cpp:475
+msgid "PRESS ESC TO ABORT"
+msgstr ""
+
+#: src/MapEditor.cpp:442
+msgid "PRESS F1 FOR HELP"
+msgstr ""
+
+#: src/MapEditor.cpp:447
+msgid "TEXT EDITOR MODE"
+msgstr ""
+
+#: src/MapEditor.cpp:452
+msgid "NORMAL EDITOR MODE"
+msgstr ""
+
+#: src/MapEditor.cpp:456
+msgid "NUMBER OF PLAYERS   "
+msgstr ""
+
+#: src/MapEditor.cpp:471
+msgid "Author: "
+msgstr ""
+
+#: src/MapEditor.cpp:501
+msgid "PRESS G FOR A GROUND TILE"
+msgstr ""
+
+#: src/MapEditor.cpp:505
+msgid "PRESS W FOR A WALL"
+msgstr ""
+
+#: src/MapEditor.cpp:509
+msgid "PRESS B FOR A BOX"
+msgstr ""
+
+#: src/MapEditor.cpp:514
+msgid "PRESS R FOR A RANDOM TILE"
+msgstr ""
+
+#: src/MapEditor.cpp:519
+msgid "PRESS O FOR A BOMB TRAP"
+msgstr ""
+
+#: src/MapEditor.cpp:524
+msgid "PRESS I FOR AN ICE TILE"
+msgstr ""
+
+#: src/MapEditor.cpp:529
+msgid "PRESS NUMBER KEYS FOR BOMBER POSITIONS"
+msgstr ""
+
+#: src/MapEditor.cpp:533
+msgid "THE FOLLOWING KEYS PRODUCE ARROWS"
+msgstr ""
+
+#: src/MapEditor.cpp:538
+msgid "U"
+msgstr ""
+
+#: src/MapEditor.cpp:543
+msgid "J"
+msgstr ""
+
+#: src/MapEditor.cpp:548
+msgid "K"
+msgstr ""
+
+#: src/MapEditor.cpp:553
+msgid "L"
+msgstr ""
+
+#: src/MapEditor.cpp:557
+msgid "PRESS SPACE BAR FOR A HOLE"
+msgstr ""
+
+#: src/MapEditor.cpp:559
+msgid "PAGE UP AND DOWN SET NR OF PLAYERS"
+msgstr ""
+
+#: src/MapEditor.cpp:561
+msgid "PRESS A FOR CHANGING THE AUTHOR"
+msgstr ""
+
+#: src/MapEditor.cpp:563
+msgid "PRESSING F2 SWITCHES EDITOR MODE"
+msgstr ""
+
+#: src/MapSelector.cpp:174
+msgid "SPACE   TOGGLE CURRENT SELECTION"
+msgstr ""
+
+#: src/MapSelector.cpp:176
+msgid "A   SELECT ALL MAPS"
+msgstr ""
+
+#: src/MapSelector.cpp:178
+msgid "S   SELECT CURRENT MAP ONLY"
+msgstr ""
+
+#: src/MapSelector.cpp:183
+msgid "by "
+msgstr ""
+
+#: src/MapSelector.cpp:193
+msgid "Ice"
+msgstr ""
+
+#: src/MapSelector.cpp:195
+msgid "Jungle"
+msgstr ""
+
+#: src/MapSelector.cpp:197
+msgid "Jungle Arena"
+msgstr ""
+
+#: src/MapSelector.cpp:199
+msgid "Strange Kitchen"
+msgstr ""
+
+#: src/MapSelector.cpp:201
+msgid "Green Crypt"
+msgstr ""
+
+#: src/MapSelector.cpp:203
+msgid "Melting Metal"
+msgstr ""
+
+#: src/MapSelector.cpp:214 src/MapSelector.cpp:220
+msgid "THIS MAP IS ONLY FOR UP TO "
+msgstr ""
+
+#: src/MapSelector.cpp:214 src/MapSelector.cpp:220
+msgid " PLAYERS"
+msgstr ""
+
+#: src/Observer.cpp:223
+msgid "HURRY UP !!!!"
+msgstr ""
+
+#: src/PlayerSetup.cpp:127
+msgid "SKIN"
+msgstr ""
+
+#: src/PlayerSetup.cpp:129
+msgid "NAME"
+msgstr ""
+
+#: src/PlayerSetup.cpp:131
+msgid "TEAM"
+msgstr ""
+
+#: src/PlayerSetup.cpp:133
+msgid "Controller"
+msgstr ""
+
+#: src/PlayerSetup.cpp:135
+msgid "SPACE ENABLES OR DISABLES A PLAYER, H TOGGLES HIGHLIGHTING"
+msgstr ""
+
+#: src/Menu.cpp:285
+msgid "Yes"
+msgstr ""
+
+#: src/Menu.cpp:285
+msgid "No"
+msgstr ""

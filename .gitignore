@@ -1,0 +1,21 @@
+# Build artifacts
+build/
+*.nro
+*.nso
+*.nacp
+*.elf
+/clanbomber.map
+*.pfs0
+*.nsp
+
+# Generated romfs (assets are sourced from upstream/src/)
+romfs/
+
+# Editor / OS
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
