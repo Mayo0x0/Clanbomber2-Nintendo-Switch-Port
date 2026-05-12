@@ -6,16 +6,17 @@ Builds a `clanbomber.nro` runnable from the **Homebrew Menu** on a Switch with c
 
 ## Status
 
-Playable proof-of-concept. Works in emulator and on real hardware.
+Playable. Works in emulator and on real hardware.
 
 - ✅ Boot to main menu, intro animation, audio
 - ✅ Local multiplayer match playable end-to-end
 - ✅ JoyCon / Pro Controller input (D-Pad, left analog stick, A/B/X/Y, Plus, Minus)
 - ✅ NRO icon, custom title metadata
 - ✅ NSP forwarder support (built externally — see below)
-- ⚠️ Quit-to-menu skips the SDL teardown to avoid a libnx audren shutdown crash (kernel reclaims resources at process exit instead)
+- ❌ Quit-to-menu crashes
 - ❌ No online multiplayer (already removed in upstream)
 - ❌ No on-screen keyboard yet for player name entry
+- ❌ No Map Editor Support
 
 ## Prerequisites
 
