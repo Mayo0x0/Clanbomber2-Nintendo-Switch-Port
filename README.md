@@ -1,5 +1,7 @@
 # ClanBomber — Nintendo Switch Homebrew Port
 
+![Clanbomber Icon](icon.jpg)
+
 A homebrew port of [**ClanBomber2**](https://github.com/viti95/ClanBomber2) — the SDL2-based fork of the classic [Bomberman-style multiplayer game](https://www.nongnu.org/clanbomber/) by Andreas Hundt and Denis Oliver Kropp — to the Nintendo Switch via the [devkitPro](https://devkitpro.org/) toolchain.
 
 Builds a `clanbomber.nro` runnable from the **Homebrew Menu** on a Switch with custom firmware (Atmosphère) or in an emulator such as Ryujinx / suyu. An optional NSP forwarder makes the game launchable from the Switch's home menu like a regular title.
