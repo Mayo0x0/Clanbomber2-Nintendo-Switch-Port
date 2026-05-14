@@ -71,7 +71,7 @@ Boot into Homebrew Menu (album icon → press R) and select ClanBomber.
 
 ### Optional: NSP forwarder (home-menu tile)
 
-For a real home-menu tile that looks like an installed game, build an NSP forwarder externally. The simplest path is the web-based generator at <https://nsp-forwarder.n8.io/> — point it at `sdmc:/switch/clanbomber/clanbomber.nro`, supply your console's `prod.keys`, pick a title ID in the user range (`0x0500_xxxx_xxxx_xxxx`), and an icon. Install the resulting NSP via Tinfoil / DBI / Awoo Installer.
+For a real home-menu tile that looks like an installed game, build an NSP forwarder externally. The simplest path is the web-based generator at <https://nsp-forwarder.n8.io/> — point it at `/switch/clanbomber/clanbomber.nro` and supply your console's `prod.keys`. Install the resulting NSP via Tinfoil / DBI / Awoo Installer.
 
 The NSP is per-console (signed with your personal keys), so it isn't included in this repository.
 
