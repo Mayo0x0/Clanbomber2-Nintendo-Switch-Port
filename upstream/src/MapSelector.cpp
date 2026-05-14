@@ -171,12 +171,21 @@ void MapSelector::draw()
     Resources::Font_big()->render(map->get_name(), 510, 50,
                                   cbe::FontAlignment_0topcenter);
 
+#ifdef __SWITCH__
+    Resources::Font_small()->render(_("Y   TOGGLE CURRENT SELECTION"), 10,
+                                    530, cbe::FontAlignment_0topleft);
+    Resources::Font_small()->render(_("L   SELECT ALL MAPS"), 10, 550,
+                                    cbe::FontAlignment_0topleft);
+    Resources::Font_small()->render(_("R   SELECT CURRENT MAP ONLY"), 10, 570,
+                                    cbe::FontAlignment_0topleft);
+#else
     Resources::Font_small()->render(_("SPACE   TOGGLE CURRENT SELECTION"), 10,
                                     530, cbe::FontAlignment_0topleft);
     Resources::Font_small()->render(_("A   SELECT ALL MAPS"), 10, 550,
                                     cbe::FontAlignment_0topleft);
     Resources::Font_small()->render(_("S   SELECT CURRENT MAP ONLY"), 10, 570,
                                     cbe::FontAlignment_0topleft);
+#endif
 
     // show author name
     std::string author(map->get_author());

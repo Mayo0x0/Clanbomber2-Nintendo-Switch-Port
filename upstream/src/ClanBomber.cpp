@@ -322,7 +322,11 @@ int ClanBomberApplication::main() {
 	menu->add_item(_("Map Editor"), MENU_MAP_EDITOR);
 	menu->add_item(_("Show Credits"), MENU_CREDITS);
 	menu->add_item(_("Help Screen"), MENU_HELP);
+#ifndef __SWITCH__
+	// On Switch the player exits via the Home button — no in-app Quit needed,
+	// and the upstream Quit path runs SDL_Quit() which crashes audren teardown.
 	menu->add_item(_("Quit Game"), MENU_EXIT);
+#endif
 
 	menu->scroll_in();
 
@@ -911,6 +915,92 @@ void ClanBomberApplication::run_intro() {
 }
 
 void ClanBomberApplication::show_tutorial() {
+#ifdef __SWITCH__
+	// Switch port: show gamepad layout as the first help page.
+	// Label column at x=70, value column pushed to x=440 so the long
+	// "Select Current Map:" label doesn't collide with its single-letter value.
+	{
+		const int LABEL_X = 70;
+		const int VALUE_X = 440;
+
+		int y = 25;
+		Resources::Titlescreen()->blit(0, 0);
+		CB_FillRect(0, 0, 800, 600, 0, 0, 0, 128);
+		Resources::Font_big()->render(_("Nintendo Switch Controls"), 400, y,
+				cbe::FontAlignment_0topcenter);
+
+		y += 70;
+		Resources::Font_big()->render(_("Move:"), LABEL_X, y,
+				cbe::FontAlignment_0topleft);
+		Resources::Font_big()->render(_("D-Pad or Left Stick"), VALUE_X, y,
+				cbe::FontAlignment_0topleft);
+
+		y += 40;
+		Resources::Font_big()->render(_("Drop Bomb:"), LABEL_X, y,
+				cbe::FontAlignment_0topleft);
+		Resources::Font_big()->render(_("A or B"), VALUE_X, y,
+				cbe::FontAlignment_0topleft);
+
+		y += 40;
+		Resources::Font_big()->render(_("Quit Match:"), LABEL_X, y,
+				cbe::FontAlignment_0topleft);
+		Resources::Font_big()->render(_("Minus"), VALUE_X, y,
+				cbe::FontAlignment_0topleft);
+
+		y += 45;
+		Resources::Font_big()->render(_("Menu Confirm:"), LABEL_X, y,
+				cbe::FontAlignment_0topleft);
+		Resources::Font_big()->render(_("A or Plus"), VALUE_X, y,
+				cbe::FontAlignment_0topleft);
+
+		y += 40;
+		Resources::Font_big()->render(_("Menu Back:"), LABEL_X, y,
+				cbe::FontAlignment_0topleft);
+		Resources::Font_big()->render(_("B"), VALUE_X, y,
+				cbe::FontAlignment_0topleft);
+
+		// --- Player Setup section ---
+		y += 45;
+		Resources::Font_big()->render(_("Player Setup"), LABEL_X, y,
+				cbe::FontAlignment_0topleft);
+
+		y += 40;
+		Resources::Font_big()->render(_("Toggle Player:"), LABEL_X, y,
+				cbe::FontAlignment_0topleft);
+		Resources::Font_big()->render(_("Y"), VALUE_X, y,
+				cbe::FontAlignment_0topleft);
+
+		y += 40;
+		Resources::Font_big()->render(_("Highlight:"), LABEL_X, y,
+				cbe::FontAlignment_0topleft);
+		Resources::Font_big()->render(_("X"), VALUE_X, y,
+				cbe::FontAlignment_0topleft);
+
+		// --- Map Selection section ---
+		y += 45;
+		Resources::Font_big()->render(_("Map Selection"), LABEL_X, y,
+				cbe::FontAlignment_0topleft);
+
+		y += 40;
+		Resources::Font_big()->render(_("Select All Maps:"), LABEL_X, y,
+				cbe::FontAlignment_0topleft);
+		Resources::Font_big()->render(_("L"), VALUE_X, y,
+				cbe::FontAlignment_0topleft);
+
+		y += 40;
+		Resources::Font_big()->render(_("Select Current Map:"), LABEL_X, y,
+				cbe::FontAlignment_0topleft);
+		Resources::Font_big()->render(_("R"), VALUE_X, y,
+				cbe::FontAlignment_0topleft);
+
+		Resources::Font_big()->render(_("Press any key"), 400, 560,
+				cbe::FontAlignment_0topcenter);
+		SDL_RenderPresent(renderer);
+
+		CB_WaitForKeypress();
+	}
+#endif
+
 	int y = 25;
 	Resources::Titlescreen()->blit(0, 0);
 	CB_FillRect(0, 0, 800, 600, 0, 0, 0, 128);

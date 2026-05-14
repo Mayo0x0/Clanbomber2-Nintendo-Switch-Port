@@ -66,6 +66,9 @@ GameStatus::show ()
             {
                 switch (event.key.keysym.scancode)
                 {
+#ifdef __SWITCH__
+                case SDL_SCANCODE_RETURN:  // Switch A / Plus
+#endif
                 case SDL_SCANCODE_SPACE:
                     space_pressed = true;
                     break;
@@ -116,9 +119,15 @@ GameStatus::draw ()
 {
     Resources::Gamestatus_background ()->blit (0, 0);
 
+#ifdef __SWITCH__
+    Resources::Font_small ()->render (_("PRESS A TO CONTINUE"), 400,
+                                              570,
+                                              cbe::FontAlignment_0topcenter);
+#else
     Resources::Font_small ()->render (_("PRESS SPACE TO CONTINUE"), 400,
                                               570,
                                               cbe::FontAlignment_0topcenter);
+#endif
 
     if (!game_status->winner)
     {

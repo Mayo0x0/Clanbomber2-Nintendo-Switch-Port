@@ -22,11 +22,48 @@
 #include <unistd.h>
 #include <cstdio>
 #include <cstdlib>
+#include <cstring>
+#include <string>
 
 #include "ClanBomber.h"
 #include "GameConfig.h"
 
 extern ClanBomberApplication *app;
+
+// ---------------------------------------------------------------------------
+// libnx software keyboard helper. Called from PlayerSetup::enter_name on
+// Switch (declared there via `extern`). The current value is seeded into
+// the keyboard; on confirm the result is written back into `name`. Returns
+// true if the user confirmed a non-empty string.
+// ---------------------------------------------------------------------------
+bool switch_swkbd_input(std::string &name, const char *guide_text, int max_len) {
+    SwkbdConfig kbd;
+    Result rc = swkbdCreate(&kbd, 0);
+    if (R_FAILED(rc)) {
+        return false;
+    }
+
+    swkbdConfigMakePresetDefault(&kbd);
+    if (guide_text && guide_text[0]) {
+        swkbdConfigSetGuideText(&kbd, guide_text);
+    }
+    if (!name.empty()) {
+        swkbdConfigSetInitialText(&kbd, name.c_str());
+    }
+    if (max_len > 0) {
+        swkbdConfigSetStringLenMax(&kbd, (u32)max_len);
+    }
+
+    char out[256] = {0};
+    rc = swkbdShow(&kbd, out, sizeof(out));
+    swkbdClose(&kbd);
+
+    if (R_SUCCEEDED(rc) && out[0]) {
+        name.assign(out);
+        return true;
+    }
+    return false;
+}
 
 // ---------------------------------------------------------------------------
 // Synthetic key event helpers
@@ -66,8 +103,10 @@ static SDL_Scancode controller_button_to_scancode(int button) {
         case SDL_CONTROLLER_BUTTON_START:      return SDL_SCANCODE_RETURN;     // Plus
         case SDL_CONTROLLER_BUTTON_A:          return SDL_SCANCODE_BACKSPACE;  // physical B (Nintendo back, no in-game effect)
         case SDL_CONTROLLER_BUTTON_BACK:       return SDL_SCANCODE_ESCAPE;     // Minus — exits in-game and menus
-        case SDL_CONTROLLER_BUTTON_X:          return SDL_SCANCODE_SPACE;      // toggle player on/off in PlayerSetup
-        case SDL_CONTROLLER_BUTTON_Y:          return SDL_SCANCODE_H;          // toggle highlighting in PlayerSetup
+        case SDL_CONTROLLER_BUTTON_X:          return SDL_SCANCODE_SPACE;      // physical Switch Y — toggle in Player/Map Setup
+        case SDL_CONTROLLER_BUTTON_Y:          return SDL_SCANCODE_H;          // physical Switch X — toggle highlighting in PlayerSetup
+        case SDL_CONTROLLER_BUTTON_LEFTSHOULDER:  return SDL_SCANCODE_A;       // L — MapSelector: select all maps
+        case SDL_CONTROLLER_BUTTON_RIGHTSHOULDER: return SDL_SCANCODE_S;       // R — MapSelector: select current map only
         default: return SDL_SCANCODE_UNKNOWN;
     }
 }
@@ -81,15 +120,17 @@ static SDL_Scancode controller_button_to_scancode(int button) {
 // ---------------------------------------------------------------------------
 
 static const Sint16 AXIS_DEADZONE = 16384;
-static int axis_x_state = 0;  // -1 = left, 0 = neutral, +1 = right
-static int axis_y_state = 0;  // -1 = up,   0 = neutral, +1 = down
+static const Sint16 TRIGGER_THRESHOLD = 16384;  // ZL/ZR press point
+static int axis_x_state = 0;          // -1 = left, 0 = neutral, +1 = right
+static int axis_y_state = 0;          // -1 = up,   0 = neutral, +1 = down
+static int trigger_l_state = 0;       // 0 = released, 1 = pressed (ZL)
+static int trigger_r_state = 0;       // 0 = released, 1 = pressed (ZR)
 
 static void handle_axis_motion(int axis, Sint16 value) {
-    int new_state = 0;
-    if (value >  AXIS_DEADZONE) new_state =  1;
-    else if (value < -AXIS_DEADZONE) new_state = -1;
-
     if (axis == SDL_CONTROLLER_AXIS_LEFTX) {
+        int new_state = 0;
+        if (value >  AXIS_DEADZONE) new_state =  1;
+        else if (value < -AXIS_DEADZONE) new_state = -1;
         if (new_state == axis_x_state) return;
         if (axis_x_state == -1) push_synthetic_key(SDL_SCANCODE_LEFT,  false);
         if (axis_x_state ==  1) push_synthetic_key(SDL_SCANCODE_RIGHT, false);
@@ -97,12 +138,29 @@ static void handle_axis_motion(int axis, Sint16 value) {
         if (new_state    ==  1) push_synthetic_key(SDL_SCANCODE_RIGHT, true);
         axis_x_state = new_state;
     } else if (axis == SDL_CONTROLLER_AXIS_LEFTY) {
+        int new_state = 0;
+        if (value >  AXIS_DEADZONE) new_state =  1;
+        else if (value < -AXIS_DEADZONE) new_state = -1;
         if (new_state == axis_y_state) return;
         if (axis_y_state == -1) push_synthetic_key(SDL_SCANCODE_UP,   false);
         if (axis_y_state ==  1) push_synthetic_key(SDL_SCANCODE_DOWN, false);
         if (new_state    == -1) push_synthetic_key(SDL_SCANCODE_UP,   true);
         if (new_state    ==  1) push_synthetic_key(SDL_SCANCODE_DOWN, true);
         axis_y_state = new_state;
+    } else if (axis == SDL_CONTROLLER_AXIS_TRIGGERLEFT) {
+        // ZL: synthesizes the N key — Map Editor "new map"
+        int new_state = (value > TRIGGER_THRESHOLD) ? 1 : 0;
+        if (new_state != trigger_l_state) {
+            push_synthetic_key(SDL_SCANCODE_N, new_state == 1);
+            trigger_l_state = new_state;
+        }
+    } else if (axis == SDL_CONTROLLER_AXIS_TRIGGERRIGHT) {
+        // ZR: synthesizes the D key — Map Editor "delete map"
+        int new_state = (value > TRIGGER_THRESHOLD) ? 1 : 0;
+        if (new_state != trigger_r_state) {
+            push_synthetic_key(SDL_SCANCODE_D, new_state == 1);
+            trigger_r_state = new_state;
+        }
     }
 }
 

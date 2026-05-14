@@ -160,9 +160,15 @@ void PlayerSetup::draw(bool fick)
                                     cbe::FontAlignment_0center);
     Resources::Font_small()->render(_("Controller"), 612, 40,
                                     cbe::FontAlignment_0center);
+#ifdef __SWITCH__
+    Resources::Font_small()->render(_("Y ENABLES OR DISABLES A PLAYER, "
+                                      "X TOGGLES HIGHLIGHTING"), 12, 580,
+                                    cbe::FontAlignment_0topleft);
+#else
     Resources::Font_small()->render(_("SPACE ENABLES OR DISABLES A PLAYER, "
                                       "H TOGGLES HIGHLIGHTING"), 12, 580,
                                     cbe::FontAlignment_0topleft);
+#endif
 
     CB_FillRect(0, 70+cur_row*63, 800, 63, 55, 110, 220, 70);
 
@@ -297,6 +303,18 @@ void PlayerSetup::handle_enter()
 
 void PlayerSetup::enter_name()
 {
+#ifdef __SWITCH__
+    // Use the libnx system software keyboard (swkbd) — there is no physical
+    // keyboard on Switch, so the upstream CB_EnterText() flow would just hang
+    // waiting for scancodes that never arrive.
+    extern bool switch_swkbd_input(std::string &, const char *, int);
+
+    std::string name = Config::bomber[cur_row].get_name();
+    if (switch_swkbd_input(name, "Enter player name", 16)) {
+        Config::bomber[cur_row].set_name(name);
+    }
+    return;
+#else
     float alpha = 0;
 
     std::string new_string = Config::bomber[cur_row].get_name();
@@ -324,4 +342,5 @@ void PlayerSetup::enter_name()
             return;
         }
     }
+#endif
 }

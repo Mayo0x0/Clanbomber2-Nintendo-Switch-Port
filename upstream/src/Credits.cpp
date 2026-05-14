@@ -55,6 +55,10 @@ Credits::Credits( ClanBomberApplication *_app )
     text.push_back("non");
 
     text.push_back("");
+    text.push_back(_("Switch Port"));
+    text.push_back("Mayo0x0");
+
+    text.push_back("");
     text.push_back(_("ClanBomber Uses"));
     //text.push_back("");
     text.push_back("DejaVu");

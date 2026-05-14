@@ -49,6 +49,11 @@ protected:
     int cur_x, cur_y;
     bool text_editor_mode;
 
+    // Switch port — gamepad-driven editor uses a palette/cycling model
+    // instead of one keyboard key per tile / bomber slot.
+    int current_tile_idx;       // index into EDITOR_TILE_PALETTE
+    int current_bomber_slot;    // 0..7, displayed as 1..8
+
     void draw_editor();
     void show_help();
     void draw_select_screen(bool flip=true);

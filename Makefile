@@ -157,13 +157,24 @@ assets: $(ROMFS)/.assets-stamp
 $(ROMFS)/.assets-stamp: $(wildcard upstream/src/fonts/*.ttf) \
                        $(wildcard upstream/src/maps/*.map) \
                        $(wildcard upstream/src/pics/*.png) \
-                       $(wildcard upstream/src/wavs/*)
+                       $(wildcard upstream/src/wavs/*) \
+                       $(wildcard src/fonts/*) \
+                       $(wildcard src/maps/*) \
+                       $(wildcard src/pics/*) \
+                       $(wildcard src/wavs/*)
 	@mkdir -p $(ROMFS)/fonts $(ROMFS)/maps $(ROMFS)/pics $(ROMFS)/wavs
 	@cp -u upstream/src/fonts/*.ttf $(ROMFS)/fonts/ 2>/dev/null || true
 	@cp -u upstream/src/maps/*.map  $(ROMFS)/maps/  2>/dev/null || true
 	@cp -u upstream/src/pics/*.png  $(ROMFS)/pics/  2>/dev/null || true
 	@cp -u upstream/src/wavs/*.wav  $(ROMFS)/wavs/  2>/dev/null || true
 	@cp -u upstream/src/wavs/*.mod  $(ROMFS)/wavs/  2>/dev/null || true
+	@# Switch-port asset overrides: files placed under src/{fonts,maps,pics,wavs}/
+	@# overwrite the corresponding upstream asset of the same name. Use `cp -f`
+	@# (not `-u`) so the override always wins regardless of mtime.
+	@cp -f src/fonts/* $(ROMFS)/fonts/ 2>/dev/null || true
+	@cp -f src/maps/*  $(ROMFS)/maps/  2>/dev/null || true
+	@cp -f src/pics/*  $(ROMFS)/pics/  2>/dev/null || true
+	@cp -f src/wavs/*  $(ROMFS)/wavs/  2>/dev/null || true
 	@touch $@
 	@echo "Assets staged in $(ROMFS)/"
 

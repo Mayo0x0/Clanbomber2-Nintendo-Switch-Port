@@ -75,6 +75,9 @@ void GameStatus_Team::show()
             {
                 switch (event.key.keysym.scancode)
                 {
+#ifdef __SWITCH__
+                case SDL_SCANCODE_RETURN:  // Switch A / Plus
+#endif
                 case SDL_SCANCODE_SPACE:
                     space_pressed = true;
                     break;
@@ -135,8 +138,13 @@ void GameStatus_Team::draw()
     game_status_team->team_count[0] = game_status_team->team_count[1] = game_status_team->team_count[2] = game_status_team->team_count[3] = 0;
     Resources::Gamestatus_background()->blit(0, 0);
 
+#ifdef __SWITCH__
+    Resources::Font_small()->render(_("PRESS A TO CONTINUE"), 400,
+                                            570, cbe::FontAlignment_0topcenter);
+#else
     Resources::Font_small()->render(_("PRESS SPACE TO CONTINUE"), 400,
                                             570, cbe::FontAlignment_0topcenter);
+#endif
 
     int window_x_offset = 0;
     int window_y_offset = 170;

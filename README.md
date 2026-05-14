@@ -15,9 +15,9 @@ Playable. Works in emulator and on real hardware.
 - ✅ JoyCon / Pro Controller input (D-Pad, left analog stick, A/B/X/Y, Plus, Minus)
 - ✅ NRO icon, custom title metadata
 - ✅ NSP forwarder support (built externally — see below)
-- ❌ Quit-to-menu crashes
+- ✅ Quit-to-menu (Home Button)
+- ✅ On-screen keyboard for player name entry
 - ❌ No online multiplayer (already removed in upstream)
-- ❌ No on-screen keyboard yet for player name entry
 - ❌ No Map Editor Support
 
 ## Prerequisites
@@ -50,13 +50,8 @@ To clean intermediate state:
 
 ### Custom NRO icon
 
-The Makefile auto-detects `icon.jpg` (256×256 JPEG) at the repo root and embeds it into the NRO's NACP. The shipped `icon.jpg` is generated from `icon.ico` at the repo root via a one-liner:
+The Makefile auto-detects `icon.jpg` (256×256 JPEG) at the repo root and embeds it into the NRO's NACP. The shipped `icon.jpg` is generated with AI.
 
-```powershell
-powershell -NoProfile -Command "Add-Type -AssemblyName System.Drawing; $src = [System.Drawing.Image]::FromFile('icon.ico'); $dst = New-Object System.Drawing.Bitmap 256, 256; $g = [System.Drawing.Graphics]::FromImage($dst); $g.InterpolationMode = 'HighQualityBicubic'; $g.DrawImage($src, 0, 0, 256, 256); $dst.Save('icon.jpg', [System.Drawing.Imaging.ImageFormat]::Jpeg); $g.Dispose(); $dst.Dispose(); $src.Dispose()"
-```
-
-Replace `icon.ico` / `icon.jpg` with your own artwork to rebrand.
 
 ## Deploy
 

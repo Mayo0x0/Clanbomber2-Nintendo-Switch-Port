@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p /c/Tools/clanbomber-switch-port/src/pics)",
+      "Bash(cp /c/Tools/clanbomber-switch-port/upstream/src/pics/ps_controls.png /c/Tools/clanbomber-switch-port/src/pics/ps_controls.png)"
+    ]
+  }
+}
