@@ -145,10 +145,7 @@ All modifications are guarded by `#ifdef __SWITCH__` where they would otherwise 
 
 ## Known limitations
 
-- Renderer pinned to `opengles2` — the only reliable backend on Switch via `mesa` / `libdrm_nouveau`.
-- No on-screen keyboard for player name entry; the saved defaults (`Are`, `You`, `Still`, `Watching`, `AIs`, `Playing`, `For`, `You`) are kept until the user edits the config file manually.
 - Localization disabled (`-DENABLE_NLS=0`) — gettext isn't wired up against RomFS yet. UI is English.
-- The "Software was closed" dialog after Quit is normal Switch behaviour for any application that ends, including official games — **not** a crash. (A real crash would say "due to an error".)
 
 ## License
 
