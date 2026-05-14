@@ -17,8 +17,8 @@ Playable. Works in emulator and on real hardware.
 - ✅ NSP forwarder support (built externally — see below)
 - ✅ Quit-to-menu (Home Button)
 - ✅ On-screen keyboard for player name entry
+- ✅ Map Editor Support
 - ❌ No online multiplayer (already removed in upstream)
-- ❌ No Map Editor Support
 
 ## Prerequisites
 
