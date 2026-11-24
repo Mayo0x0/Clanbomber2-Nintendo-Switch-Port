@@ -113,7 +113,7 @@ std::string BomberConfig::get_name()
 
 void BomberConfig::set_skin(int _skin)
 {
-    skin = _skin%NR_BOMBERSKINS;
+    skin = (_skin % NR_BOMBERSKINS + NR_BOMBERSKINS) % NR_BOMBERSKINS;
 }
 
 int BomberConfig::get_skin()
